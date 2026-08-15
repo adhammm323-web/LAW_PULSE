@@ -1,0 +1,32 @@
+
+/* Contact */
+.contact-section {
+    padding: 50px 20px;
+}
+
+.contact-section form {
+    background: #ded2bd;
+    padding: 30px;
+    border-radius: 15px;
+}
+
+.contact-section h2 {
+    color: #111;
+}
+
+.contact-section .form-control {
+    border: 1px solid #c59b27;
+}
+
+.contact-btn {
+    background: #0a0a0a;
+    color: #c59b27;
+    border: 0;
+    padding: 12px 25px;
+    border-radius: 8px;
+}
+
+.contact-btn:hover {
+    background: #c59b27;
+    color: #111;
+}
