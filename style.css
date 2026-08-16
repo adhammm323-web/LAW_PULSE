@@ -79,8 +79,8 @@
 
 /* Footer */
 .footer {
-    background: black;
-    color: white;
+    background: #ded2bd;
+    color: #111;
     padding: 25px 0;
     margin-top: 35px;
 }
@@ -90,7 +90,7 @@
 }
 
 .footer a {
-    color: white;
+    color: #111;
     text-decoration: none;
     margin: 0 20px;
 }
@@ -98,5 +98,4 @@
 .footer a:hover,
 .footer small {
     color: #9b7418;
-
 }
