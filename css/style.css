@@ -1,9 +1,17 @@
-/* Sidebar / Navbar */
+.header{
+    /* background-color: #1a1a1a; */
+    height: 100vh ;
+    /* display: flex; */
+    /* flex-direction: column; */
+
+}
+
+/* Start Navbar */ 
 .sidebar {
-    width: 250px;
-    min-height: 100vh;
+    /* width: 250px; */
     background: #0a0a0a;
     padding: 30px 20px;
+
 }
 
 .logo {
@@ -41,10 +49,13 @@
     border: 1px solid #443817;
 }
 
+ /* end Navbar */
 
- /* Contact */
+
+ /* Start Contact */
 .contact-section {
     padding: 50px 20px;
+    margin-top: 80px;
 }
 
 .contact-section form {
@@ -74,15 +85,15 @@
     color: #111;
 }
 
+ /* End Contact */
 
 
-
-/* Footer */
+/* Start Footer */
 .footer {
-    background: black;
+    background:  #0a0a0a;
     color: white;
-    padding: 25px 0;
-    margin-top: 35px;
+    padding: 25px 40px;
+    /* margin-top: 35px; */
 }
 
 .footer-logo {
@@ -100,3 +111,4 @@
     color: #9b7418;
 
 }
+/* End Footer */
