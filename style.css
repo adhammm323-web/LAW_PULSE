@@ -1,8 +1,8 @@
 .footer {
-    background: #ded2bd;
+    background: #e5dac7;
     color: #111;
-    padding: 25px 0;
-    margin-top: 35px;
+    padding: 22px 0;
+    border-radius: 20px 20px 0 0;
 }
 
 .footer-logo {
@@ -10,12 +10,31 @@
 }
 
 .footer a {
-    color: #111;
+    color: #222;
     text-decoration: none;
-    margin: 0 20px;
+    margin: 0 10px;
 }
 
 .footer a:hover,
 .footer small {
-    color: #9b7418;
+    color: #98751d;
+}
+/* ================= Mobile Responsive ================= */
+@media (max-width: 768px) {
+
+    .page-wrap {
+        display: block;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        top: 0;
+        border-radius: 0;
+    }
+
+    .white-box {
+        display: block !important;
+    }
 }
