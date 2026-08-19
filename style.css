@@ -1,32 +1,31 @@
-
-/* Contact */
-.contact-section {
-    padding: 50px 20px;
+/* ================= Home Section ================= */
+.white-box {
+    background: white;
+    padding: 25px;
+    border-radius: 18px;
 }
 
-.contact-section form {
-    background: #ded2bd;
-    padding: 30px;
+
+/* ================= How It Works Cards ================= */
+.step-box {
+    background: #e1dbd0;
+    padding: 22px;
     border-radius: 15px;
+    min-height: 125px;
 }
 
-.contact-section h2 {
-    color: #111;
-}
 
-.contact-section .form-control {
-    border: 1px solid #c59b27;
-}
-
-.contact-btn {
-    background: #0a0a0a;
-    color: #c59b27;
+/* ================= Main Buttons ================= */
+.main-btn {
+    background: #11131a;
+    color: #c99b18;
     border: 0;
-    padding: 12px 25px;
-    border-radius: 8px;
+    padding: 10px 24px;
+    border-radius: 9px;
+    text-decoration: none;
 }
 
-.contact-btn:hover {
-    background: #c59b27;
+.main-btn:hover {
+    background: #c99b18;
     color: #111;
 }
