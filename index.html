@@ -1,70 +1,332 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-       <link rel="stylesheet" href="style.css"> 
+ </head>
+ <body>
+    
+ 
+        <!-- ================= Lawyer Dashboard ================= -->
+        <section id="lawyer-dashboard" class="page-view">
 
-</head>
-<body>
+            <header class="page-header">
 
-<!-- ================= Main Content ================= -->
-    <main class="content">
+                <h1>Lawyer Dashboard</h1>
 
+                <p>
+                    Manage your legal work and client requests.
+                </p>
 
-        <!-- ================= Home Section ================= -->
-        <section id="home" class="container py-4">
+                <span class="badge">
+                    Lawyer
+                </span>
 
-            <!-- Home Header -->
-            <div class="white-box d-flex justify-content-between align-items-center">
-                <h2 class="fw-bold mb-0">Law Pulse Web Portal</h2>
-                <span>Find the right lawyer for your case.</span>
+            </header>
+
+            <div class="dark-card">
+
+                <h2>Welcome back, Mona</h2>
+
+                <p>
+                    Here is your daily summary.
+                </p>
+
             </div>
 
+            <div class="stats-grid">
 
-            <!-- ================= How It Works ================= -->
-            <div class="white-box mt-4">
+                <div class="info-card text-center">
 
-                <h3 class="fw-bold mb-4">How it works</h3>
+                    <h3 class="highlight-text">8</h3>
 
-                <div class="row g-3">
-
-                    <!-- Step 1 -->
-                    <div class="col-md-4">
-                        <div class="step-box">
-                            <h5>1. Choose</h5>
-                            <p>Select specialty.</p>
-                        </div>
-                    </div>
-
-                    <!-- Step 2 -->
-                    <div class="col-md-4">
-                        <div class="step-box">
-                            <h5>2. Browse</h5>
-                            <p>View lawyer profiles.</p>
-                        </div>
-                    </div>
-
-                    <!-- Step 3 -->
-                    <div class="col-md-4">
-                        <div class="step-box">
-                            <h5>3. Request</h5>
-                            <p>Book consultation.</p>
-                        </div>
-                    </div>
+                    <p>Active Cases</p>
 
                 </div>
 
-                <!-- Find Lawyer Button -->
-                <a href="#lawyers" class="main-btn d-inline-block mt-3">
-                    Find a Lawyer Now
-                </a>
+                <div class="info-card text-center">
+
+                    <h3 class="highlight-text">
+                        4.9 ⭐
+                    </h3>
+
+                    <p>Overall Rating</p>
+
+                </div>
+
+                <div class="info-card text-center">
+
+                    <h3 class="highlight-text">12</h3>
+
+                    <p>Pending Requests</p>
+
+                </div>
 
             </div>
-            <!-- ================= End How It Works ================= -->
 
         </section>
-        <!-- ================= End Home Section ================= -->
-         </body>
-</html
+
+
+        <!-- ================= Lawyer Cases ================= -->
+        <section id="lawyer-cases" class="page-view">
+
+            <header class="page-header">
+
+                <h1>Manage Lawyer Cases</h1>
+
+                <p>
+                    Track your current and completed cases.
+                </p>
+
+            </header>
+
+            <div class="content-box">
+
+                <div class="info-card">
+
+                    <h3 class="highlight-text">
+                        Ahmed Hassan
+                    </h3>
+
+                    <p>
+                        Contract dispute • In progress
+                    </p>
+
+                    <p>
+                        Last update: Today
+                    </p>
+
+                </div>
+
+                <div class="info-card mt-20">
+
+                    <h3 class="highlight-text">
+                        Mohamed Ali
+                    </h3>
+
+                    <p>
+                        Commercial case • Under review
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= Lawyer Schedule ================= -->
+        <section id="lawyer-schedule" class="page-view">
+
+            <header class="page-header">
+
+                <h1>Update Case & Schedule</h1>
+
+                <p>
+                    Add notes and update your case progress.
+                </p>
+
+            </header>
+
+            <div class="content-box">
+
+                <div class="form-group">
+
+                    <label>Case Notes</label>
+
+                    <textarea class="form-control"
+                              rows="4"
+                              placeholder="Add procedures or case updates...">
+                    </textarea>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>Next Appointment</label>
+
+                    <input type="datetime-local"
+                           class="form-control">
+
+                </div>
+
+                <button class="btn-primary">
+                    Save Data
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= Lawyer Rating ================= -->
+        <section id="lawyer-rating" class="page-view">
+
+            <header class="page-header">
+
+                <h1>Rating & Service</h1>
+
+                <p>
+                    Review your client feedback and service quality.
+                </p>
+
+            </header>
+
+            <div class="content-box">
+
+                <div class="info-card">
+
+                    <h3>
+                        Client Rating: Ahmed Hassan
+                    </h3>
+
+                    <h2 class="highlight-text">
+                        ⭐⭐⭐⭐⭐
+                    </h2>
+
+                    <p>
+                        "Excellent service and professional communication!"
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= Premium ================= -->
+        <section id="lawyer-premium" class="page-view">
+
+            <header class="page-header">
+
+                <h1>Premium Subscription</h1>
+
+                <p>
+                    Get more visibility and premium features.
+                </p>
+
+            </header>
+
+            <div class="content-box">
+
+                <div class="info-card">
+
+                    <h3>
+                        ⭐ Premium Plan
+                    </h3>
+
+                    <h2 class="highlight-text">
+                        $49.99 / Month
+                    </h2>
+
+                    <p>
+                        Enjoy better profile visibility,
+                        priority requests and additional tools.
+                    </p>
+
+                    <button class="btn-primary mt-20">
+                        Subscribe Now
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= Escrow ================= -->
+        <section id="lawyer-escrow" class="page-view">
+
+            <header class="page-header">
+
+                <h1>Receive from Escrow</h1>
+
+                <p>
+                    Manage your available payments and earnings.
+                </p>
+
+            </header>
+
+            <div class="content-box">
+
+                <div class="info-card">
+
+                    <h3>
+                        Available Balance
+                    </h3>
+
+                    <h2 class="highlight-text">
+                        $150.00
+                    </h2>
+
+                    <p>
+                        Funds available for withdrawal after
+                        completed legal services.
+                    </p>
+
+                    <button class="btn-primary mt-20">
+                        Withdraw Funds
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- ================= Footer ================= -->
+    <footer class="footer">
+
+        <div class="container">
+
+            <div class="row align-items-center">
+
+                <div class="col-md-4 text-center text-md-start">
+
+                    <img src="logo.png"
+                         class="footer-logo"
+                         alt="Law Pulse">
+
+                </div>
+
+                <div class="col-md-4 text-center my-3">
+
+                    <a href="#home">Home</a>
+                    <a href="#lawyers">Lawyers</a>
+                    <a href="#contact">Contact</a>
+
+                </div>
+
+                <div class="col-md-4 text-center text-md-end">
+
+                    <p class="mb-0">
+                        © 2026 Law Pulse
+                    </p>
+
+                    <small>
+                        Your Case. Our Pulse.
+                    </small>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+</div>
+
+
+<!-- ================= JavaScript ================= -->
+<script src="javascript.js"></script>
+
+</body>
+</html>
