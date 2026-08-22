@@ -6,47 +6,612 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Law Pulse</title>
 
-    <!-- Bootstrap -->
+    <!-- Bootstrap & CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- CSS -->
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<div class="page-wrap">
+<!-- ================= Preloader ================= -->
+<div id="preloader">
+    <img src="logo.png" class="preloader-img" alt="Law Pulse">
+    <div class="spinner"></div>
+</div>
 
-    <!-- ================= Sidebar / Navbar ================= -->
+
+<!-- ================= Login Page ================= -->
+<div id="loginPage" class="login-page-container">
+
+    <div class="login-card">
+
+        <img src="logo.png" class="login-logo" alt="Law Pulse">
+
+        <h1>Welcome to Law Pulse</h1>
+        <p>Please select your portal to login</p>
+
+        <div class="form-group">
+            <label>Email Address</label>
+            <input type="email" id="loginEmail" class="form-control"
+                   placeholder="Enter your email">
+        </div>
+
+        <div class="form-group">
+            <label>Password</label>
+            <input type="password" id="loginPassword" class="form-control"
+                   placeholder="Enter your password">
+        </div>
+
+        <button class="btn-primary w-100 mb-2"
+                onclick="handleLogin('client')">
+            Login as Client
+        </button>
+
+        <button class="btn-secondary w-100"
+                onclick="handleLogin('lawyer')">
+            Login as Lawyer
+        </button>
+
+    </div>
+</div>
+
+
+<!-- ================= Main Application ================= -->
+<div id="appContainer" class="app-container hidden">
+
+
+    <!-- ================= Sidebar ================= -->
     <aside class="sidebar">
 
-        <!-- Logo -->
-        <div class="text-center mb-4">
-            <img src="./images/logo.png" class="logo" alt="Law Pulse">
+        <div class="logo-container">
+            <img src="logo.png" class="sidebar-logo" alt="Law Pulse">
         </div>
 
-        <!-- Portal Buttons -->
-        <div class="d-flex gap-2 mb-4">
-            <button class="portal-btn active">Client</button>
-            <button class="portal-btn">Lawyer</button>
-            <button class="portal-btn">Admin</button>
+
+        <!-- Portal Type -->
+        <div class="portal-toggle-container">
+
+            <button class="portal-toggle active" id="btnClientNav">
+                Client
+            </button>
+
+            <button class="portal-toggle" id="btnLawyerNav">
+                Lawyer
+            </button>
+
         </div>
 
-        <!-- Navigation Links -->
-        <nav class="d-flex flex-column gap-2">
-            <a href="#home" class="nav-link-custom active">Home</a>
-            <a href="#lawyers" class="nav-link-custom">Find Lawyer</a>
-            <a href="#" class="nav-link-custom">Dashboard</a>
-            <a href="#" class="nav-link-custom">Chat</a>
-            <a href="#" class="nav-link-custom">FAQ</a>
-            <a href="#" class="nav-link-custom">Complaints</a>
-            <a href="#contact" class="nav-link-custom">Contact</a>
+
+        <!-- Client Navigation -->
+        <nav id="clientNav" class="nav-menu">
+
+            <a href="#home" class="nav-btn active">Home</a>
+            <a href="#lawyers" class="nav-btn">Find Lawyer</a>
+            <a href="#dashboard" class="nav-btn">Dashboard</a>
+            <a href="#chat" class="nav-btn">Chat</a>
+            <a href="#faq" class="nav-btn">FAQ</a>
+            <a href="#complaints" class="nav-btn">Complaints</a>
+            <a href="#contact" class="nav-btn">Contact</a>
+
+            <button class="nav-btn logout-btn" onclick="logout()">
+                Logout
+            </button>
+
+        </nav>
+
+
+        <!-- Lawyer Navigation -->
+        <nav id="lawyerNav" class="nav-menu hidden">
+
+            <a href="#lawyer-dashboard" class="nav-btn active">
+                Dashboard
+            </a>
+
+            <a href="#lawyer-cases" class="nav-btn">
+                Cases
+            </a>
+
+            <a href="#lawyer-schedule" class="nav-btn">
+                Schedule
+            </a>
+
+            <a href="#lawyer-rating" class="nav-btn">
+                Rating & Service
+            </a>
+
+            <a href="#lawyer-premium" class="nav-btn">
+                Premium
+            </a>
+
+            <a href="#lawyer-escrow" class="nav-btn">
+                Receive Escrow
+            </a>
+
+            <button class="nav-btn logout-btn" onclick="logout()">
+                Logout
+            </button>
+
         </nav>
 
     </aside>
-    <!-- ================= End Sidebar / Navbar ================= -->
 
 
-</body>
+    <!-- ================= Main Content ================= -->
+    <main class="main-content">
 
-</html>
+
+        <!-- ================= Client Home ================= -->
+        <section id="home" class="page-view">
+
+            <header class="page-header">
+                <h1>Law Pulse Web Portal</h1>
+                <p>Find the right lawyer for your case.</p>
+            </header>
+
+            <div class="content-box">
+
+                <h2>How it works</h2>
+
+                <div class="steps-container">
+
+                    <div class="step-card">
+                        <h3>1. Choose</h3>
+                        <p>Select your legal specialty.</p>
+                    </div>
+
+                    <div class="step-card">
+                        <h3>2. Browse</h3>
+                        <p>View lawyer profiles and reviews.</p>
+                    </div>
+
+                    <div class="step-card">
+                        <h3>3. Request</h3>
+                        <p>Book your consultation easily.</p>
+                    </div>
+
+                </div>
+
+                <button class="btn-primary mt-20"
+                        onclick="location.hash='lawyers'">
+                    Find a Lawyer Now
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= Lawyers ================= -->
+        <section id="lawyers" class="page-view">
+
+            <header class="page-header">
+                <h1>Our Lawyers</h1>
+                <p>Find your perfect legal match.</p>
+            </header>
+
+            <input class="form-control search-bar"
+                   placeholder="Search by name or specialty...">
+
+            <div class="row g-3">
+
+
+                <!-- Lawyer Card 1 -->
+                <div class="col-md-4">
+
+                    <div class="lawyer-card">
+
+                        <img src="https://www.legal500.com/wp-content/uploads/sites/13/2025/04/107A0848x-scaled-aspect-ratio-800-800-1.jpg"
+                             alt="Ahmed Hafez">
+
+                        <h5>Ahmed Hafez</h5>
+
+                        <span class="law-badge">
+                            Managing Partner
+                        </span>
+
+                        <p>📍 Egypt</p>
+
+                        <button class="main-btn w-100 mt-3">
+                            View Profile
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Lawyer Card 2 -->
+                <div class="col-md-4">
+
+                    <div class="lawyer-card">
+
+                        <img src="https://matoukbassiouny.com/wp-content/uploads/2022/10/Matouk-Bassiouny-Partner-Amr-Ehab.jpg"
+                             alt="Amr Ehab">
+
+                        <h5>Amr Ehab</h5>
+
+                        <span class="law-badge">
+                            Dispute Resolution
+                        </span>
+
+                        <p>📍 Egypt</p>
+
+                        <button class="main-btn w-100 mt-3">
+                            View Profile
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Lawyer Card 3 -->
+                <div class="col-md-4">
+
+                    <div class="lawyer-card">
+
+                        <img src="https://sharkawylaw.com/wp-content/uploads/2020/07/Amr-Hafez_940x730.jpg"
+                             alt="Amr Hafez">
+
+                        <h5>Amr Hafez</h5>
+
+                        <span class="law-badge">
+                            Corporate & Commercial
+                        </span>
+
+                        <p>📍 Egypt</p>
+
+                        <button class="main-btn w-100 mt-3">
+                            View Profile
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Lawyer Card 4 -->
+                <div class="col-md-4">
+
+                    <div class="lawyer-card">
+
+                        <img src="https://storage.googleapis.com/cdn.oggeh.com/files/965ee7ca30dfff023cceecdab88a9b10/img/medium/AC96169B-1883-D067-45D9-59E620F9C623.jpg"
+                             alt="Hossam El Sanhory">
+
+                        <h5>Hossam El Sanhory</h5>
+
+                        <span class="law-badge">
+                            Intellectual Property
+                        </span>
+
+                        <p>📍 Egypt</p>
+
+                        <button class="main-btn w-100 mt-3">
+                            View Profile
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= Lawyer Profile ================= -->
+        <section id="profile" class="page-view">
+
+            <header class="page-header">
+                <h1>Lawyer Profile</h1>
+            </header>
+
+            <div class="content-box">
+
+                <h2>Ahmed ElSawy</h2>
+
+                <p>
+                    Specialized in criminal defense with experience
+                    in handling different legal cases.
+                </p>
+
+                <button class="btn-primary mt-20"
+                        onclick="location.hash='consultation'">
+                    Book Consultation
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= Consultation ================= -->
+        <section id="consultation" class="page-view">
+
+            <header class="page-header">
+
+                <h1>Request Consultation</h1>
+
+                <p>
+                    Book an appointment with
+                    <span class="highlight-text">Ahmed ElSawy</span>.
+                </p>
+
+            </header>
+
+            <div class="content-box">
+
+                <form class="row g-3">
+
+                    <div class="col-md-6">
+                        <label>Full Name</label>
+                        <input class="form-control"
+                               placeholder="Enter your name">
+                    </div>
+
+                    <div class="col-md-6">
+                        <label>Issue Type</label>
+
+                        <select class="form-control">
+                            <option>Criminal</option>
+                            <option>Family</option>
+                            <option>Business</option>
+                            <option>Contract Review</option>
+                        </select>
+
+                    </div>
+
+                    <div class="col-md-6">
+                        <label>Date</label>
+                        <input type="date" class="form-control">
+                    </div>
+
+                    <div class="col-md-6">
+                        <label>Time</label>
+                        <input type="time" class="form-control">
+                    </div>
+
+                    <div class="col-12">
+
+                        <label>Description</label>
+
+                        <textarea class="form-control"
+                                  rows="4"
+                                  placeholder="Briefly describe your case...">
+                        </textarea>
+
+                    </div>
+
+                    <div class="col-12">
+
+                        <button class="btn-primary w-100">
+                            Send Request
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= Client Dashboard ================= -->
+        <section id="dashboard" class="page-view">
+
+            <header class="page-header">
+                <h1>Client Dashboard</h1>
+                <p>Manage your consultations and legal requests.</p>
+            </header>
+
+            <div class="content-box">
+
+                <div class="info-card">
+
+                    <h4>Request with Ahmed ElSawy</h4>
+
+                    <p>
+                        Criminal Case Consultation
+                    </p>
+
+                    <p>
+                        Date: 2026-09-01
+                    </p>
+
+                    <span class="highlight-text">
+                        Pending
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= Chat ================= -->
+        <section id="chat" class="page-view">
+
+            <header class="page-header">
+
+                <h1>In-App Chat</h1>
+
+                <p>
+                    Lawyer: Mona Adel
+                    <span class="online">(Online)</span>
+                </p>
+
+            </header>
+
+            <div class="content-box chat-box">
+
+                <div class="chat-messages">
+
+                    <div class="msg-row client">
+                        <div class="msg msg-sent">
+                            Hello, I want to ask about my contract case.
+                        </div>
+                    </div>
+
+                    <div class="msg-row lawyer">
+                        <div class="msg msg-received">
+                            Hello, how can I help you?
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="chat-input-area">
+
+                    <input class="form-control"
+                           placeholder="Type a message...">
+
+                    <button class="btn-primary">
+                        Send
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= FAQ ================= -->
+        <section id="faq" class="page-view">
+
+            <header class="page-header">
+                <h1>FAQ & Legal Questions</h1>
+                <p>Find answers to common questions.</p>
+            </header>
+
+            <div class="content-box">
+
+                <div class="info-card">
+
+                    <h4>How does escrow work?</h4>
+
+                    <p>
+                        Payment is held securely and released
+                        after the legal service is completed.
+                    </p>
+
+                </div>
+
+                <div class="info-card mt-20">
+
+                    <h4>How can I book a lawyer?</h4>
+
+                    <p>
+                        Choose a lawyer from the Find Lawyer
+                        section and request a consultation.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= Complaints ================= -->
+        <section id="complaints" class="page-view">
+
+            <header class="page-header">
+
+                <h1>Complaints & Suggestions</h1>
+
+                <p>
+                    Help us improve the Law Pulse experience.
+                </p>
+
+            </header>
+
+            <div class="content-box">
+
+                <div class="form-group">
+
+                    <label>Subject</label>
+
+                    <input class="form-control"
+                           placeholder="Complaint or suggestion title">
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>Details</label>
+
+                    <textarea class="form-control"
+                              rows="5"
+                              placeholder="Write details...">
+                    </textarea>
+
+                </div>
+
+                <button class="btn-primary mt-20">
+                    Submit
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= Contact ================= -->
+        <section id="contact" class="page-view">
+
+            <header class="page-header">
+
+                <h1>Contact Us</h1>
+
+                <p>
+                    Have a question? Contact the Law Pulse team.
+                </p>
+
+            </header>
+
+            <div class="content-box">
+
+                <form>
+
+                    <div class="form-group">
+
+                        <label>Full Name</label>
+
+                        <input class="form-control"
+                               placeholder="Enter your name">
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>Email</label>
+
+                        <input type="email"
+                               class="form-control"
+                               placeholder="Enter your email">
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>Message</label>
+
+                        <textarea class="form-control"
+                                  rows="4"
+                                  placeholder="Write your message...">
+                        </textarea>
+
+                    </div>
+
+                    <button class="btn-primary">
+                        Send Message
+                    </button>
+
+                </form>
+
+            </div>
+
+        </section>
