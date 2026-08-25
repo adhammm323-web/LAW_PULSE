@@ -1,332 +1,654 @@
- <!DOCTYPE html>
- <html lang="en">
- <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
- </head>
- <body>
-    
- 
-        <!-- ================= Lawyer Dashboard ================= -->
-        <section id="lawyer-dashboard" class="page-view">
 
-            <header class="page-header">
-
-                <h1>Lawyer Dashboard</h1>
-
-                <p>
-                    Manage your legal work and client requests.
-                </p>
-
-                <span class="badge">
-                    Lawyer
-                </span>
-
-            </header>
-
-            <div class="dark-card">
-
-                <h2>Welcome back, Mona</h2>
-
-                <p>
-                    Here is your daily summary.
-                </p>
-
-            </div>
-
-            <div class="stats-grid">
-
-                <div class="info-card text-center">
-
-                    <h3 class="highlight-text">8</h3>
-
-                    <p>Active Cases</p>
-
+<!-- ================= Contact ================= -->
+                <section class="page-view" id="contact">
+                    <header class="page-header bg-white rounded-4 p-4 mb-4">
+                        <h1>Contact Us</h1>
+                        <p>Reach the Law Pulse team for platform questions and support.</p>
+                    </header>
+                    <div class="row g-3">
+                        <div class="col-md-4">
+                            <div class="info-card bg-light border rounded-3 p-3 h-100">
+                                <span class="contact-icon">✉</span>
+                                <h4>Email Support</h4>
+                                <p>support@lawpulse.example</p>
+                                <small>General platform assistance</small>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="info-card bg-light border rounded-3 p-3 h-100">
+                                <span class="contact-icon">☎</span>
+                                <h4>Support Line</h4>
+                                <p> +20 1010273596 </p>
+                                <small>Sunday – Thursday</small>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="info-card bg-light border rounded-3 p-3 h-100">
+                                <span class="contact-icon">◷</span>
+                                <h4>Working Hours</h4>
+                                <p>9:00 AM – 5:00 PM</p>
+                                <small>Cairo local time</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-4 row g-4">
+                        <div class="col-lg-6">
+                            <div class="bg-white rounded-4 p-4 h-100">
+                                <h3>Send a message</h3>
+                                <form class="mt-4" id="contactForm" novalidate>
+                                    <div class="mb-3">
+                                        <label>Full Name</label>
+                                        <input class="form-control shadow-none" id="contactName" name="fullName" placeholder="Enter your name" autocomplete="name">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label>Email</label>
+                                        <input class="form-control shadow-none" id="contactEmail" name="email" placeholder="Enter your email" type="email" autocomplete="email">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label>Message</label>
+                                        <textarea class="form-control shadow-none" id="contactMessage" name="message" placeholder="Write your message..." rows="4" maxlength="500">
+                                        </textarea>
+                                    </div>
+                                    <button class="btn btn-dark law-btn fw-semibold rounded-3" type="submit">Send Message</button>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="bg-white rounded-4 p-4 h-100">
+                                <h3>What can support help with?</h3>
+                                <div class="mini-list mt-4">
+                                    <div>
+                                        <span>Account</span>
+                                        <strong>Login and profile questions</strong>
+                                    </div>
+                                    <div>
+                                        <span>Requests</span>
+                                        <strong>Consultation status and scheduling</strong>
+                                    </div>
+                                    <div>
+                                        <span>Platform</span>
+                                        <strong>Technical issues and feedback</strong>
+                                    </div>
+                                    <div>
+                                        <span>Escrow</span>
+                                        <strong>Payment flow questions</strong>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- ================= Lawyer Dashboard ================= -->
+                <section class="page-view" id="lawyer-dashboard">
+                    <header class="page-header bg-white rounded-4 p-4 mb-4">
+                        <h1>Lawyer Dashboard</h1>
+                        <p>Manage your legal work and client requests.</p>
+                        <span class="badge">Lawyer</span>
+                    </header>
+                    <div class="dark-card hero-card bg-dark text-white rounded-4 p-4">
+                        <div>
+                            <h2>Welcome back, Mona</h2>
+                            <p>Here is your daily summary and the work that needs your attention.</p>
+                        </div>
+                        <a class="btn btn-dark law-btn fw-semibold rounded-3" href="#lawyer-schedule">View Schedule</a>
+                    </div>
+                    <div class="dashboard-stats row g-3">
+                        <div class="col-md-4">
+                            <div class="info-card text-center bg-light border rounded-3 p-3 h-100">
+                                <h3 class="gold-text fw-bold">8</h3>
+                                <p>Active Cases</p>
+                                <small>2 updated today</small>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="info-card text-center bg-light border rounded-3 p-3 h-100">
+                                <h3 class="gold-text fw-bold">4.9 ⭐</h3>
+                                <p>Overall Rating</p>
+                                <small>Based on recent reviews</small>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="info-card text-center bg-light border rounded-3 p-3 h-100">
+                                <h3 class="gold-text fw-bold">12</h3>
+                                <p>Pending Requests</p>
+                                <small>4 need a response</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-4 row g-4">
+                        <div class="col-lg-6">
+                            <div class="bg-white rounded-4 p-4 h-100">
+                                <div class="section-title-row">
+                                    <div>
+                                        <h3>Pending Consultation Requests</h3>
+                                        <p class="text-secondary">Requests waiting for your review.</p>
+                                    </div>
+                                    <a class="text-decoration-none fw-semibold small gold-link" href="#lawyer-cases">View cases</a>
+                                </div>
+                                <div class="request-row">
+                                    <div>
+                                        <strong>Omar Hassan</strong>
+                                        <span>Contract review • New request</span>
+                                    </div>
+                                    <div class="text-end">
+                                        <strong>Sep 02</strong>
+                                        <span class="status-text">Pending</span>
+                                    </div>
+                                </div>
+                                <div class="request-row">
+                                    <div>
+                                        <strong>Sara Mahmoud</strong>
+                                        <span>Employment dispute • Follow-up</span>
+                                    </div>
+                                    <div class="text-end">
+                                        <strong>Sep 03</strong>
+                                        <span class="status-text">Pending</span>
+                                    </div>
+                                </div>
+                                <div class="request-row">
+                                    <div>
+                                        <strong>Youssef Adel</strong>
+                                        <span>Company incorporation • Consultation</span>
+                                    </div>
+                                    <div class="text-end">
+                                        <strong>Sep 04</strong>
+                                        <span class="status-text">Pending</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="bg-white rounded-4 p-4 h-100">
+                                <h3>Today's Schedule</h3>
+                                <div class="schedule-list mt-4">
+                                    <div>
+                                        <span>10:00</span>
+                                        <div>
+                                            <strong>Ahmed Hassan</strong>
+                                            <small>Contract dispute update</small>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <span>12:30</span>
+                                        <div>
+                                            <strong>Mariam Ali</strong>
+                                            <small>Client consultation</small>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <span>03:00</span>
+                                        <div>
+                                            <strong>Mohamed Samir</strong>
+                                            <small>Case document review</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-4 bg-white rounded-4 p-4">
+                        <h3>Quick Actions</h3>
+                        <div class="mt-4 row g-3">
+                            <div class="col-md-4">
+                                <a class="action-card bg-dark text-white rounded-3 p-4 h-100 text-decoration-none" href="#lawyer-cases"><strong>Manage Cases</strong><span>Review active files and case status →</span></a>
+                            </div>
+                            <div class="col-md-4">
+                                <a class="action-card bg-dark text-white rounded-3 p-4 h-100 text-decoration-none" href="#lawyer-schedule"><strong>Update Schedule</strong><span>Add case notes and appointments →</span></a>
+                            </div>
+                            <div class="col-md-4">
+                                <a class="action-card bg-dark text-white rounded-3 p-4 h-100 text-decoration-none" href="#lawyer-escrow"><strong>Check Escrow</strong><span>Review balances and release status →</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- ================= Lawyer Cases ================= -->
+                <section class="page-view" id="lawyer-cases">
+                    <header class="page-header bg-white rounded-4 p-4 mb-4">
+                        <h1>Manage Lawyer Cases</h1>
+                        <p>Track active matters, deadlines and current case status.</p>
+                    </header>
+                    <div class="compact-stats row g-3">
+                        <div class="col-md-4">
+                            <div class="info-card bg-light border rounded-3 p-3 h-100">
+                                <h3 class="gold-text fw-bold">8</h3>
+                                <p>Active</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="info-card bg-light border rounded-3 p-3 h-100">
+                                <h3 class="gold-text fw-bold">3</h3>
+                                <p>Under Review</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="info-card bg-light border rounded-3 p-3 h-100">
+                                <h3 class="gold-text fw-bold">14</h3>
+                                <p>Completed</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-4 bg-white rounded-4 p-4">
+                        <div class="section-title-row">
+                            <div>
+                                <h3>Active case list</h3>
+                                <p class="text-secondary">Priority cases and their next required action.</p>
+                            </div>
+                            <span class="case-chip">Updated Today</span>
+                        </div>
+                        <div class="case-table mt-4 ui-scroll-table">
+                            <div class="case-row case-head">
+                                <span>Client</span>
+                                <span>Case</span>
+                                <span>Status</span>
+                                <span>Next Action</span>
+                            </div>
+                            <div class="case-row">
+                                <span><strong>Ahmed Hassan</strong></span>
+                                <span>Contract dispute</span>
+                                <span><b class="status-pill progress">In Progress</b></span>
+                                <span>Client meeting • Aug 26</span>
+                            </div>
+                            <div class="case-row">
+                                <span><strong>Mohamed Ali</strong></span>
+                                <span>Commercial case</span>
+                                <span><b class="status-pill review">Under Review</b></span>
+                                <span>Review documents • Aug 27</span>
+                            </div>
+                            <div class="case-row">
+                                <span><strong>Sara Youssef</strong></span>
+                                <span>Employment matter</span>
+                                <span><b class="status-pill progress">In Progress</b></span>
+                                <span>Prepare response • Aug 29</span>
+                            </div>
+                            <div class="case-row">
+                                <span><strong>Omar Nabil</strong></span>
+                                <span>Company formation</span>
+                                <span><b class="status-pill pending">Pending</b></span>
+                                <span>Waiting for documents</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-4 bg-white rounded-4 p-4">
+                        <h3>Upcoming deadlines</h3>
+                        <div class="deadline-grid mt-4">
+                            <div>
+                                <strong>26 Aug</strong>
+                                <span>Ahmed Hassan — client meeting</span>
+                            </div>
+                            <div>
+                                <strong>29 Aug</strong>
+                                <span>Sara Youssef — written response</span>
+                            </div>
+                            <div>
+                                <strong>02 Sep</strong>
+                                <span>Mohamed Ali — case review checkpoint</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- ================= Lawyer Schedule ================= -->
+                <section class="page-view" id="lawyer-schedule">
+                    <header class="page-header bg-white rounded-4 p-4 mb-4">
+                        <h1>Update Case &amp; Schedule</h1>
+                        <p>Add case notes, review appointments and plan your upcoming work.</p>
+                    </header>
+                    <div class="row g-4">
+                        <div class="col-lg-6">
+                            <div class="bg-white rounded-4 p-4 h-100">
+                                <h3>Add Case Update</h3>
+                                <form class="mt-4" id="caseUpdateForm" novalidate>
+                                    <div class="mb-3">
+                                        <label for="caseSelect">Case</label>
+                                        <select class="form-control shadow-none" id="caseSelect" name="case">
+                                            <option value="">Select case</option>
+                                            <option>Ahmed Hassan — Contract dispute</option>
+                                            <option>Mohamed Ali — Commercial case</option>
+                                            <option>Sara Youssef — Employment matter</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="caseNotes">Case Notes</label>
+                                        <textarea class="form-control shadow-none" id="caseNotes" name="caseNotes" placeholder="Add procedures or case updates..." rows="4" maxlength="600"></textarea>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="nextAppointment">Next Appointment</label>
+                                        <input class="form-control shadow-none" id="nextAppointment" name="nextAppointment" type="datetime-local">
+                                    </div>
+                                    <button class="btn btn-dark law-btn fw-semibold rounded-3" type="submit">Save Data</button>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="bg-white rounded-4 p-4 h-100">
+                                <h3>Upcoming Appointments</h3>
+                                <div class="schedule-list mt-4">
+                                    <div>
+                                        <span>26<br><small>AUG</small></span>
+                                        <div>
+                                            <strong>Ahmed Hassan</strong>
+                                            <small>10:00 AM • Contract dispute</small>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <span>27<br><small>AUG</small></span>
+                                        <div>
+                                            <strong>Mariam Ali</strong>
+                                            <small>12:30 PM • Consultation</small>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <span>29<br><small>AUG</small></span>
+                                        <div>
+                                            <strong>Sara Youssef</strong>
+                                            <small>03:00 PM • Employment matter</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-4 bg-white rounded-4 p-4">
+                        <h3>Weekly availability</h3>
+                        <div class="availability-grid mt-4">
+                            <div>
+                                <strong>Sunday</strong>
+                                <span>10:00 – 16:00</span>
+                            </div>
+                            <div>
+                                <strong>Monday</strong>
+                                <span>09:00 – 15:00</span>
+                            </div>
+                            <div>
+                                <strong>Tuesday</strong>
+                                <span>11:00 – 17:00</span>
+                            </div>
+                            <div>
+                                <strong>Wednesday</strong>
+                                <span>10:00 – 16:00</span>
+                            </div>
+                            <div>
+                                <strong>Thursday</strong>
+                                <span>09:00 – 14:00</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- ================= Lawyer Rating ================= -->
+                <section class="page-view" id="lawyer-rating">
+                    <header class="page-header bg-white rounded-4 p-4 mb-4">
+                        <h1>Rating &amp; Service</h1>
+                        <p>Review client feedback and monitor service quality.</p>
+                    </header>
+                    <div class="row g-4">
+                        <div class="col-lg-4">
+                            <div class="dark-card rating-summary bg-dark text-white rounded-4 p-4 h-100">
+                                <span>Overall Rating</span>
+                                <h2>4.9 ⭐</h2>
+                                <p>Strong client satisfaction across recent consultations.</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-8">
+                            <div class="rating-bars bg-white rounded-4 p-4 h-100">
+                                <div>
+                                    <span>Communication</span>
+                                    <b>4.9</b>
+                                </div>
+                                <div class="rating-bar">
+                                    <i style="width:98%">
+                                    </i>
+                                </div>
+                                <div>
+                                    <span>Professionalism</span>
+                                    <b>5.0</b>
+                                </div>
+                                <div class="rating-bar">
+                                    <i style="width:100%">
+                                    </i>
+                                </div>
+                                <div>
+                                    <span>Response Time</span>
+                                    <b>4.8</b>
+                                </div>
+                                <div class="rating-bar">
+                                    <i style="width:96%">
+                                    </i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-4 bg-white rounded-4 p-4">
+                        <h3>Recent Client Reviews</h3>
+                        <div class="mt-4 row g-3">
+                            <div class="col-md-4">
+                                <div class="review-card bg-white border rounded-3 h-100">
+                                    <div class="review-top">
+                                        <strong>Ahmed Hassan</strong>
+                                        <span>★★★★★</span>
+                                    </div>
+                                    <p>Excellent service and professional communication throughout the case.</p>
+                                    <small>Contract dispute • Aug 2026</small>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="review-card bg-white border rounded-3 h-100">
+                                    <div class="review-top">
+                                        <strong>Mariam Ali</strong>
+                                        <span>★★★★★</span>
+                                    </div>
+                                    <p>Clear explanations and very good follow-up before the consultation.</p>
+                                    <small>Legal consultation • Aug 2026</small>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="review-card bg-white border rounded-3 h-100">
+                                    <div class="review-top">
+                                        <strong>Omar Nabil</strong>
+                                        <span>★★★★☆</span>
+                                    </div>
+                                    <p>Helpful advice and organized communication during the company setup process.</p>
+                                    <small>Corporate matter • Jul 2026</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-4 bg-white rounded-4 p-4">
+                        <h3>Service Performance</h3>
+                        <div class="compact-stats mt-4 row g-3">
+                            <div class="col-md-4">
+                                <h3 class="gold-text fw-bold">96%</h3>
+                                <p>Response Rate</p>
+                            </div>
+                            <div class="col-md-4">
+                                <h3 class="gold-text fw-bold">42</h3>
+                                <p>Completed Consultations</p>
+                            </div>
+                            <div class="col-md-4">
+                                <h3 class="gold-text fw-bold">18m</h3>
+                                <p>Average First Reply</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- ================= Premium ================= -->
+                <section class="page-view" id="lawyer-premium">
+                    <header class="page-header bg-white rounded-4 p-4 mb-4">
+                        <h1>Premium Subscription</h1>
+                        <p>Increase profile visibility and access additional lawyer tools.</p>
+                    </header>
+                    <div class="premium-hero bg-dark text-white rounded-4 p-4">
+                        <div>
+                            <span class="eyebrow">LAW PULSE PREMIUM</span>
+                            <h2>Premium Plan</h2>
+                            <p>Built for lawyers who want stronger visibility and better workflow tools.</p>
+                        </div>
+                        <div class="premium-price">
+                            <strong>$49.99</strong>
+                            <span>/ Month</span>
+                            <button class="btn btn-dark law-btn fw-semibold rounded-3">Subscribe Now</button>
+                        </div>
+                    </div>
+                    <div class="mt-4 bg-white rounded-4 p-4">
+                        <h3>Included with Premium</h3>
+                        <div class="mt-4 row g-3">
+                            <div class="col-md-6 col-xl-3">
+                                <div class="feature-card bg-light border rounded-3 p-4 h-100">
+                                    <h4>Priority Visibility</h4>
+                                    <p>Improve placement when clients browse relevant practice areas.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-xl-3">
+                                <div class="feature-card bg-light border rounded-3 p-4 h-100">
+                                    <h4>Request Priority</h4>
+                                    <p>Keep new consultation opportunities easier to review and organize.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-xl-3">
+                                <div class="feature-card bg-light border rounded-3 p-4 h-100">
+                                    <h4>Performance Insights</h4>
+                                    <p>See clearer service and client engagement summaries.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-xl-3">
+                                <div class="feature-card bg-light border rounded-3 p-4 h-100">
+                                    <h4>Profile Highlight</h4>
+                                    <p>Present key experience and service information more prominently.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-4 bg-white rounded-4 p-4">
+                        <h3>Plan comparison</h3>
+                        <div class="plan-table mt-4 ui-scroll-table">
+                            <div class="plan-row plan-head">
+                                <span>Feature</span>
+                                <span>Standard</span>
+                                <span>Premium</span>
+                            </div>
+                            <div class="plan-row">
+                                <span>Client profile</span>
+                                <span>Included</span>
+                                <span>Included</span>
+                            </div>
+                            <div class="plan-row">
+                                <span>Consultation requests</span>
+                                <span>Standard</span>
+                                <span>Priority</span>
+                            </div>
+                            <div class="plan-row">
+                                <span>Performance insights</span>
+                                <span>Basic</span>
+                                <span>Advanced</span>
+                            </div>
+                            <div class="plan-row">
+                                <span>Profile visibility</span>
+                                <span>Standard</span>
+                                <span>Enhanced</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- ================= Escrow ================= -->
+                <section class="page-view" id="lawyer-escrow">
+                    <header class="page-header bg-white rounded-4 p-4 mb-4">
+                        <h1>Receive from Escrow</h1>
+                        <p>Review available funds, pending releases and recent payment activity.</p>
+                    </header>
+                    <div class="row g-3">
+                        <div class="col-md-4">
+                            <div class="dark-card bg-dark text-white rounded-4 p-4 h-100">
+                                <span class="eyebrow">AVAILABLE BALANCE</span>
+                                <h2>$150.00</h2>
+                                <p>Funds currently available for withdrawal.</p>
+                                <button class="mt-4 btn btn-dark law-btn fw-semibold rounded-3">Withdraw Funds</button>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="info-card bg-light border rounded-3 p-3 h-100">
+                                <span class="text-secondary">Pending Release</span>
+                                <h2 class="gold-text fw-bold">$320.00</h2>
+                                <p>Linked to legal services that are still in progress.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="info-card bg-light border rounded-3 p-3 h-100">
+                                <span class="text-secondary">Total Received</span>
+                                <h2 class="gold-text fw-bold">$1,840.00</h2>
+                                <p>Completed escrow releases shown in this account summary.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-4 bg-white rounded-4 p-4">
+                        <h3>Recent Transactions</h3>
+                        <div class="transaction-table mt-4 ui-scroll-table">
+                            <div class="transaction-row transaction-head">
+                                <span>Reference</span>
+                                <span>Client</span>
+                                <span>Status</span>
+                                <span>Amount</span>
+                            </div>
+                            <div class="transaction-row">
+                                <span>#LP-ESC-142</span>
+                                <span>Ahmed Hassan</span>
+                                <span><b class="status-pill success">Released</b></span>
+                                <span>$150.00</span>
+                            </div>
+                            <div class="transaction-row">
+                                <span>#LP-ESC-147</span>
+                                <span>Mariam Ali</span>
+                                <span><b class="status-pill pending">Pending</b></span>
+                                <span>$200.00</span>
+                            </div>
+                            <div class="transaction-row">
+                                <span>#LP-ESC-151</span>
+                                <span>Omar Nabil</span>
+                                <span><b class="status-pill review">In Service</b></span>
+                                <span>$120.00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-4 bg-white rounded-4 p-4">
+                        <h3>How release works</h3>
+                        <div class="timeline-list mt-4">
+                            <div>
+                                <b>1</b>
+                                <span><strong>Service starts</strong><small>The payment remains in escrow while the legal service is being delivered.</small></span>
+                            </div>
+                            <div>
+                                <b>2</b>
+                                <span><strong>Completion confirmed</strong><small>The service reaches the required completion stage.</small></span>
+                            </div>
+                            <div>
+                                <b>3</b>
+                                <span><strong>Funds become available</strong><small>The released amount moves to the available balance.</small></span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+            <!-- ================= Footer ================= -->
+            <footer class="footer mt-5">
+                <div class="container-fluid px-4">
+                    <div class="row align-items-center">
+                        <div class="col-md-4 text-center text-md-start">
+                            <img alt="Law Pulse" class="footer-logo" src="logo.png">
+                        </div>
+                        <div class="col-md-4 text-center my-3">
+                            <a href="#home">Home</a>
+                            <a href="#lawyers">Lawyers</a>
+                            <a href="#contact">Contact</a>
+                        </div>
+                        <div class="col-md-4 text-center text-md-end">
+                            <p class="mb-0">© 2026 Law Pulse</p>
+                            <small>Your Case. Our Pulse.</small>
+                        </div>
+                    </div>
                 </div>
-
-                <div class="info-card text-center">
-
-                    <h3 class="highlight-text">
-                        4.9 ⭐
-                    </h3>
-
-                    <p>Overall Rating</p>
-
-                </div>
-
-                <div class="info-card text-center">
-
-                    <h3 class="highlight-text">12</h3>
-
-                    <p>Pending Requests</p>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- ================= Lawyer Cases ================= -->
-        <section id="lawyer-cases" class="page-view">
-
-            <header class="page-header">
-
-                <h1>Manage Lawyer Cases</h1>
-
-                <p>
-                    Track your current and completed cases.
-                </p>
-
-            </header>
-
-            <div class="content-box">
-
-                <div class="info-card">
-
-                    <h3 class="highlight-text">
-                        Ahmed Hassan
-                    </h3>
-
-                    <p>
-                        Contract dispute • In progress
-                    </p>
-
-                    <p>
-                        Last update: Today
-                    </p>
-
-                </div>
-
-                <div class="info-card mt-20">
-
-                    <h3 class="highlight-text">
-                        Mohamed Ali
-                    </h3>
-
-                    <p>
-                        Commercial case • Under review
-                    </p>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- ================= Lawyer Schedule ================= -->
-        <section id="lawyer-schedule" class="page-view">
-
-            <header class="page-header">
-
-                <h1>Update Case & Schedule</h1>
-
-                <p>
-                    Add notes and update your case progress.
-                </p>
-
-            </header>
-
-            <div class="content-box">
-
-                <div class="form-group">
-
-                    <label>Case Notes</label>
-
-                    <textarea class="form-control"
-                              rows="4"
-                              placeholder="Add procedures or case updates...">
-                    </textarea>
-
-                </div>
-
-                <div class="form-group">
-
-                    <label>Next Appointment</label>
-
-                    <input type="datetime-local"
-                           class="form-control">
-
-                </div>
-
-                <button class="btn-primary">
-                    Save Data
-                </button>
-
-            </div>
-
-        </section>
-
-
-        <!-- ================= Lawyer Rating ================= -->
-        <section id="lawyer-rating" class="page-view">
-
-            <header class="page-header">
-
-                <h1>Rating & Service</h1>
-
-                <p>
-                    Review your client feedback and service quality.
-                </p>
-
-            </header>
-
-            <div class="content-box">
-
-                <div class="info-card">
-
-                    <h3>
-                        Client Rating: Ahmed Hassan
-                    </h3>
-
-                    <h2 class="highlight-text">
-                        ⭐⭐⭐⭐⭐
-                    </h2>
-
-                    <p>
-                        "Excellent service and professional communication!"
-                    </p>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- ================= Premium ================= -->
-        <section id="lawyer-premium" class="page-view">
-
-            <header class="page-header">
-
-                <h1>Premium Subscription</h1>
-
-                <p>
-                    Get more visibility and premium features.
-                </p>
-
-            </header>
-
-            <div class="content-box">
-
-                <div class="info-card">
-
-                    <h3>
-                        ⭐ Premium Plan
-                    </h3>
-
-                    <h2 class="highlight-text">
-                        $49.99 / Month
-                    </h2>
-
-                    <p>
-                        Enjoy better profile visibility,
-                        priority requests and additional tools.
-                    </p>
-
-                    <button class="btn-primary mt-20">
-                        Subscribe Now
-                    </button>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- ================= Escrow ================= -->
-        <section id="lawyer-escrow" class="page-view">
-
-            <header class="page-header">
-
-                <h1>Receive from Escrow</h1>
-
-                <p>
-                    Manage your available payments and earnings.
-                </p>
-
-            </header>
-
-            <div class="content-box">
-
-                <div class="info-card">
-
-                    <h3>
-                        Available Balance
-                    </h3>
-
-                    <h2 class="highlight-text">
-                        $150.00
-                    </h2>
-
-                    <p>
-                        Funds available for withdrawal after
-                        completed legal services.
-                    </p>
-
-                    <button class="btn-primary mt-20">
-                        Withdraw Funds
-                    </button>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-    </main>
-
-
-    <!-- ================= Footer ================= -->
-    <footer class="footer">
-
-        <div class="container">
-
-            <div class="row align-items-center">
-
-                <div class="col-md-4 text-center text-md-start">
-
-                    <img src="logo.png"
-                         class="footer-logo"
-                         alt="Law Pulse">
-
-                </div>
-
-                <div class="col-md-4 text-center my-3">
-
-                    <a href="#home">Home</a>
-                    <a href="#lawyers">Lawyers</a>
-                    <a href="#contact">Contact</a>
-
-                </div>
-
-                <div class="col-md-4 text-center text-md-end">
-
-                    <p class="mb-0">
-                        © 2026 Law Pulse
-                    </p>
-
-                    <small>
-                        Your Case. Our Pulse.
-                    </small>
-
-                </div>
-
-            </div>
-
+            </footer>
         </div>
-
-    </footer>
-
-</div>
-
-
-<!-- ================= JavaScript ================= -->
-<script src="javascript.js"></script>
-
-</body>
+        <!-- ================= JavaScript ================= -->
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11">
+        </script>
+        <script src="javascript.js">
+        </script>
+    </body>
 </html>
