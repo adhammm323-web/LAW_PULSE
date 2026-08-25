@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <title>Law Pulse</title>
+        <!-- Bootstrap & CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="style.css" rel="stylesheet">
+    </head>
+    <body>
+        <!-- ================= Preloader ================= -->
+        <div id="preloader">
+            <img alt="Law Pulse" class="preloader-img" src="logo.png">
+            <div class="spinner">
+            </div>
+        </div>
+        <!-- ================= Login Page ================= -->
+        <div class="login-page-container" id="loginPage">
+            <div class="login-card">
+                <img alt="Law Pulse" class="login-logo" src="logo.png">
+                <h1>Welcome to Law Pulse</h1>
+                <p>Please select your portal to login</p>
+                <div class="text-start mb-3">
+                    <label>Email Address</label>
+                    <input class="form-control shadow-none" id="loginEmail" placeholder="Enter your email" type="email">
+                </div>
+                <div class="text-start mb-3">
+                    <label>Password</label>
+                    <input class="form-control shadow-none" id="loginPassword" placeholder="Enter your password" type="password">
+                </div>
+                <button class="w-100 mb-2 btn btn-dark law-btn fw-semibold rounded-3" onclick="handleLogin('client')">Login as Client</button>
+                <button class="w-100 btn btn-light border fw-semibold rounded-3" onclick="handleLogin('lawyer')">Login as Lawyer</button>
+            </div>
+        </div>
+        <!-- ================= Main Application ================= -->
+        <div class="app-container hidden" id="appContainer">
+            <!-- ================= Sidebar ================= -->
+            <aside class="sidebar">
+                <div class="logo-container">
+                    <img alt="Law Pulse" class="sidebar-logo" src="logo.png">
+                </div>
+                <div class="portal-toggle-container">
+                    <button class="portal-toggle active" id="btnClientNav">Client</button>
+                    <button class="portal-toggle" id="btnLawyerNav">Lawyer</button>
+                </div>
+                <nav class="nav-menu" id="clientNav">
+                    <a class="nav-btn active" href="#home">Home</a>
+                    <a class="nav-btn" href="#lawyers">Find Lawyer</a>
+                    <a class="nav-btn" href="#dashboard">Dashboard</a>
+                    <a class="nav-btn" href="#chat">Chat</a>
+                    <a class="nav-btn" href="#faq">FAQ</a>
+                    <a class="nav-btn" href="#complaints">Complaints</a>
+                    <a class="nav-btn" href="#contact">Contact</a>
+                    <button class="nav-btn logout-btn" onclick="logout()">Logout</button>
+                </nav>
+                <nav class="nav-menu hidden" id="lawyerNav">
+                    <a class="nav-btn active" href="#lawyer-dashboard">Dashboard</a>
+                    <a class="nav-btn" href="#lawyer-cases">Cases</a>
+                    <a class="nav-btn" href="#lawyer-schedule">Schedule</a>
+                    <a class="nav-btn" href="#lawyer-rating">Rating &amp; Service</a>
+                    <a class="nav-btn" href="#lawyer-premium">Premium</a>
+                    <a class="nav-btn" href="#lawyer-escrow">Receive Escrow</a>
+                    <button class="nav-btn logout-btn" onclick="logout()">Logout</button>
+                </nav>
+            </aside>
+            <!-- ================= Main Content ================= -->
+            <main class="main-content">
+                <!-- ================= Client Home ================= -->
+                <section class="page-view" id="home">
+                    <header class="page-header bg-white rounded-4 p-4 mb-4">
+                        <h1>Law Pulse Web Portal</h1>
+                        <p>Find the right lawyer and manage your legal journey in one place.</p>
+                    </header>
+                    <div class="dark-card hero-card bg-dark text-white rounded-4 p-4">
+                        <div>
+                            <span class="eyebrow">LEGAL SUPPORT MADE SIMPLE</span>
+                            <h2>Start with the right legal direction.</h2>
+                            <p>Browse experienced lawyers, request a consultation and follow your case from your dashboard.</p>
+                        </div>
+                        <button class="btn btn-dark law-btn fw-semibold rounded-3" onclick="location.hash='lawyers'">Find a Lawyer</button>
+                    </div>
+                    <div class="mt-4 bg-white rounded-4 p-4">
+                        <div class="section-title-row">
+                            <div>
+                                <h2>How it works</h2>
+                                <p class="text-secondary">A simple path from choosing a lawyer to following your request.</p>
+                            </div>
+                        </div>
+                        <div class="row g-3">
+                            <div class="col-md-4">
+                                <div class="step-card bg-light border rounded-3 p-4 h-100">
+                                    <span class="step-number">01</span>
+                                    <h3>Choose</h3>
+                                    <p>Select the legal specialty that matches your case.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="step-card bg-light border rounded-3 p-4 h-100">
+                                    <span class="step-number">02</span>
+                                    <h3>Browse</h3>
+                                    <p>Compare lawyer profiles, areas of practice and experience.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="step-card bg-light border rounded-3 p-4 h-100">
+                                    <span class="step-number">03</span>
+                                    <h3>Request</h3>
+                                    <p>Send a consultation request and follow its status.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-4 bg-white rounded-4 p-4">
+                        <h2>Popular legal services</h2>
+                        <div class="mt-4 row g-3">
+                            <div class="col-md-6 col-xl-3">
+                                <div class="feature-card bg-light border rounded-3 p-4 h-100">
+                                    <h4>Corporate &amp; Commercial</h4>
+                                    <p>Contracts, company matters and commercial agreements.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-xl-3">
+                                <div class="feature-card bg-light border rounded-3 p-4 h-100">
+                                    <h4>Dispute Resolution</h4>
+                                    <p>Litigation, arbitration and dispute strategy.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-xl-3">
+                                <div class="feature-card bg-light border rounded-3 p-4 h-100">
+                                    <h4>Intellectual Property</h4>
+                                    <p>Trademark, copyright and brand protection support.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-xl-3">
+                                <div class="feature-card bg-light border rounded-3 p-4 h-100">
+                                    <h4>Employment Law</h4>
+                                    <p>Workplace agreements, disputes and employment advice.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-4 bg-white rounded-4 p-4">
+                        <h2>Quick actions</h2>
+                        <div class="mt-4 row g-3">
+                            <div class="col-md-4">
+                                <a class="action-card bg-dark text-white rounded-3 p-4 h-100 text-decoration-none" href="#lawyers"><strong>Browse Lawyers</strong><span>Explore available legal specialists →</span></a>
+                            </div>
+                            <div class="col-md-4">
+                                <a class="action-card bg-dark text-white rounded-3 p-4 h-100 text-decoration-none" href="#dashboard"><strong>Track Requests</strong><span>Check consultations and request status →</span></a>
+                            </div>
+                            <div class="col-md-4">
+                                <a class="action-card bg-dark text-white rounded-3 p-4 h-100 text-decoration-none" href="#faq"><strong>Legal FAQ</strong><span>Read answers to common platform questions →</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- ================= Lawyers ================= -->
+                <section class="page-view" id="lawyers">
+                    <header class="page-header bg-white rounded-4 p-4 mb-4">
+                        <h1>Our Lawyers</h1>
+                        <p>Browse Egyptian legal professionals and search instantly by name.</p>
+                    </header>
+                    <div class="search-panel bg-white rounded-4 p-4">
+                        <label class="search-label" for="lawyerSearch">Search lawyers</label>
+                        <input autocomplete="off" class="form-control search-bar shadow-none" id="lawyerSearch" placeholder="Start typing a lawyer name...">
+                        <div class="practice-tags">
+                            <span>Corporate</span>
+                            <span>Disputes</span>
+                            <span>Banking</span>
+                            <span>Employment</span>
+                            <span>IP</span>
+                            <span>M&amp;A</span>
+                        </div>
+                    </div>
+                    <p class="search-not-found hidden" id="lawyerNotFound">Not Found</p>
+                    <div class="row g-3 lawyer-grid" id="lawyerGrid">
+                        <div class="col-md-6 col-xl-4 lawyer-item">
+                            <div class="lawyer-card card border-0 shadow-sm rounded-4 p-4 h-100 text-center">
+                                <img alt="Ahmed Hafez" loading="lazy" src="https://www.legal500.com/wp-content/uploads/sites/13/2025/04/107A0848x-scaled-aspect-ratio-800-800-1.jpg">
+                                <h5>Ahmed Hafez</h5>
+                                <span class="law-badge">Managing Partner</span>
+                                <p class="text-secondary small mb-2">📍 Egypt</p>
+                                <button class="btn btn-dark law-btn fw-semibold rounded-3 w-100 mt-3" type="button" onclick="openLawyerProfile('ahmed-hafez')">View Profile</button>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xl-4 lawyer-item">
+                            <div class="lawyer-card card border-0 shadow-sm rounded-4 p-4 h-100 text-center">
+                                <img alt="Amr Ehab" loading="lazy" src="https://matoukbassiouny.com/wp-content/uploads/2022/10/Matouk-Bassiouny-Partner-Amr-Ehab.jpg">
+                                <h5>Amr Ehab</h5>
+                                <span class="law-badge">Dispute Resolution</span>
+                                <p class="text-secondary small mb-2">📍 Egypt</p>
+                                <button class="btn btn-dark law-btn fw-semibold rounded-3 w-100 mt-3" type="button" onclick="openLawyerProfile('amr-ehab')">View Profile</button>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xl-4 lawyer-item">
+                            <div class="lawyer-card card border-0 shadow-sm rounded-4 p-4 h-100 text-center">
+                                <img alt="Amr Hafez" loading="lazy" src="https://sharkawylaw.com/wp-content/uploads/2020/07/Amr-Hafez_940x730.jpg">
+                                <h5>Amr Hafez</h5>
+                                <span class="law-badge">Head of Procedures</span>
+                                <p class="text-secondary small mb-2">📍 Egypt</p>
+                                <button class="btn btn-dark law-btn fw-semibold rounded-3 w-100 mt-3" type="button" onclick="openLawyerProfile('amr-hafez')">View Profile</button>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xl-4 lawyer-item">
+                            <div class="lawyer-card card border-0 shadow-sm rounded-4 p-4 h-100 text-center">
+                                <img alt="Hossam El Sanhory" loading="lazy" src="https://storage.googleapis.com/cdn.oggeh.com/files/965ee7ca30dfff023cceecdab88a9b10/img/medium/AC96169B-1883-D067-45D9-59E620F9C623.jpg">
+                                <h5>Hossam El Sanhory</h5>
+                                <span class="law-badge">Intellectual Property</span>
+                                <p class="text-secondary small mb-2">📍 Egypt</p>
+                                <button class="btn btn-dark law-btn profile-disabled fw-semibold rounded-3 w-100 mt-3" type="button" disabled aria-disabled="true" title="Profile is not available yet">View Profile</button>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xl-4 lawyer-item">
+                            <div class="lawyer-card card border-0 shadow-sm rounded-4 p-4 h-100 text-center">
+                                <img alt="Ahmed El Sharkawy" loading="lazy" src="https://sharkawylaw.com/v8/wp-content/uploads/2020/11/Ahmed-Sharkawy_940x730.jpg">
+                                <h5>Ahmed El Sharkawy</h5>
+                                <span class="law-badge">Managing Partner</span>
+                                <p class="text-secondary small mb-2">📍 Egypt</p>
+                                <button class="btn btn-dark law-btn profile-disabled fw-semibold rounded-3 w-100 mt-3" type="button" disabled aria-disabled="true" title="Profile is not available yet">View Profile</button>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xl-4 lawyer-item">
+                            <div class="lawyer-card card border-0 shadow-sm rounded-4 p-4 h-100 text-center">
+                                <img alt="Ahmed Haggag" loading="lazy" src="https://www.sharkawylaw.com/wp-content/uploads/2023/06/Haggag-1.jpg">
+                                <h5>Ahmed Haggag</h5>
+                                <span class="law-badge">Banking &amp; Finance</span>
+                                <p class="text-secondary small mb-2">📍 Egypt</p>
+                                <button class="btn btn-dark law-btn profile-disabled fw-semibold rounded-3 w-100 mt-3" type="button" disabled aria-disabled="true" title="Profile is not available yet">View Profile</button>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xl-4 lawyer-item">
+                            <div class="lawyer-card card border-0 shadow-sm rounded-4 p-4 h-100 text-center">
+                                <img alt="Lamiaa Youssef" loading="lazy" src="https://sharkawylaw.com/v8/wp-content/uploads/2020/07/Lamiaa-Yousssef_940x730.jpg">
+                                <h5>Lamiaa Youssef</h5>
+                                <span class="law-badge">Employment &amp; Fintech</span>
+                                <p class="text-secondary small mb-2">📍 Egypt</p>
+                                <button class="btn btn-dark law-btn profile-disabled fw-semibold rounded-3 w-100 mt-3" type="button" disabled aria-disabled="true" title="Profile is not available yet">View Profile</button>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xl-4 lawyer-item">
+                            <div class="lawyer-card card border-0 shadow-sm rounded-4 p-4 h-100 text-center">
+                                <img alt="Dalia Abdelghany" loading="lazy" src="https://sharkawylaw.com/wp-content/uploads/2025/05/Untitled-design9700.png">
+                                <h5>Dalia Abdelghany</h5>
+                                <span class="law-badge">Employment Law</span>
+                                <p class="text-secondary small mb-2">📍 Egypt</p>
+                                <button class="btn btn-dark law-btn profile-disabled fw-semibold rounded-3 w-100 mt-3" type="button" disabled aria-disabled="true" title="Profile is not available yet">View Profile</button>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xl-4 lawyer-item">
+                            <div class="lawyer-card card border-0 shadow-sm rounded-4 p-4 h-100 text-center">
+                                <img alt="Nouran Gamal" loading="lazy" src="https://sharkawylaw.com/wp-content/uploads/2026/02/Nouran-Gamal.png">
+                                <h5>Nouran Gamal</h5>
+                                <span class="law-badge">Counsel</span>
+                                <p class="text-secondary small mb-2">📍 Egypt</p>
+                                <button class="btn btn-dark law-btn profile-disabled fw-semibold rounded-3 w-100 mt-3" type="button" disabled aria-disabled="true" title="Profile is not available yet">View Profile</button>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xl-4 lawyer-item">
+                            <div class="lawyer-card card border-0 shadow-sm rounded-4 p-4 h-100 text-center">
+                                <img alt="Abdellatif Eissa" loading="lazy" src="https://sharkawylaw.com/v8/wp-content/uploads/2020/11/Abdellatif-Eissa_940x730.jpg">
+                                <h5>Abdellatif Eissa</h5>
+                                <span class="law-badge">Senior Litigator</span>
+                                <p class="text-secondary small mb-2">📍 Egypt</p>
+                                <button class="btn btn-dark law-btn profile-disabled fw-semibold rounded-3 w-100 mt-3" type="button" disabled aria-disabled="true" title="Profile is not available yet">View Profile</button>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xl-4 lawyer-item">
+                            <div class="lawyer-card card border-0 shadow-sm rounded-4 p-4 h-100 text-center">
+                                <img alt="Noha Eissa" loading="lazy" src="https://sharkawylaw.com/wp-content/uploads/2025/01/Untitled-design-33.jpg">
+                                <h5>Noha Eissa</h5>
+                                <span class="law-badge">Senior Associate</span>
+                                <p class="text-secondary small mb-2">📍 Egypt</p>
+                                <button class="btn btn-dark law-btn profile-disabled fw-semibold rounded-3 w-100 mt-3" type="button" disabled aria-disabled="true" title="Profile is not available yet">View Profile</button>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xl-4 lawyer-item">
+                            <div class="lawyer-card card border-0 shadow-sm rounded-4 p-4 h-100 text-center">
+                                <img alt="Menna Abouzekry" loading="lazy" src="https://sharkawylaw.com/wp-content/uploads/2020/11/Menna-Abuzekry_940x730.jpg">
+                                <h5>Menna Abouzekry</h5>
+                                <span class="law-badge">Senior Associate</span>
+                                <p class="text-secondary small mb-2">📍 Egypt</p>
+                                <button class="btn btn-dark law-btn profile-disabled fw-semibold rounded-3 w-100 mt-3" type="button" disabled aria-disabled="true" title="Profile is not available yet">View Profile</button>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xl-4 lawyer-item">
+                            <div class="lawyer-card card border-0 shadow-sm rounded-4 p-4 h-100 text-center">
+                                <img alt="Hady Rashed" loading="lazy" src="https://sharkawylaw.com/wp-content/uploads/2020/11/Hady-Rashed_940x730.jpg">
+                                <h5>Hady Rashed</h5>
+                                <span class="law-badge">Senior Procedures Lawyer</span>
+                                <p class="text-secondary small mb-2">📍 Egypt</p>
+                                <button class="btn btn-dark law-btn profile-disabled fw-semibold rounded-3 w-100 mt-3" type="button" disabled aria-disabled="true" title="Profile is not available yet">View Profile</button>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xl-4 lawyer-item">
+                            <div class="lawyer-card card border-0 shadow-sm rounded-4 p-4 h-100 text-center">
+                                <img alt="Farah Hatem" loading="lazy" src="https://sharkawylaw.com/wp-content/uploads/2025/02/Untitled-design-67.png">
+                                <h5>Farah Hatem</h5>
+                                <span class="law-badge">Senior Associate</span>
+                                <p class="text-secondary small mb-2">📍 Egypt</p>
+                                <button class="btn btn-dark law-btn profile-disabled fw-semibold rounded-3 w-100 mt-3" type="button" disabled aria-disabled="true" title="Profile is not available yet">View Profile</button>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xl-4 lawyer-item">
+                            <div class="lawyer-card card border-0 shadow-sm rounded-4 p-4 h-100 text-center">
+                                <img alt="Essam Shayboub" loading="lazy" src="https://sharkawylaw.com/wp-content/uploads/2024/08/2-7.jpg">
+                                <h5>Essam Shayboub</h5>
+                                <span class="law-badge">Senior Associate</span>
+                                <p class="text-secondary small mb-2">📍 Egypt</p>
+                                <button class="btn btn-dark law-btn profile-disabled fw-semibold rounded-3 w-100 mt-3" type="button" disabled aria-disabled="true" title="Profile is not available yet">View Profile</button>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xl-4 lawyer-item">
+                            <div class="lawyer-card card border-0 shadow-sm rounded-4 p-4 h-100 text-center">
+                                <img alt="Nour Khaled" loading="lazy" src="https://sharkawylaw.com/wp-content/uploads/2025/12/Nour-Khaled-640426.jpg">
+                                <h5>Nour Khaled</h5>
+                                <span class="law-badge">Attorney at Law</span>
+                                <p class="text-secondary small mb-2">📍 Egypt</p>
+                                <button class="btn btn-dark law-btn profile-disabled fw-semibold rounded-3 w-100 mt-3" type="button" disabled aria-disabled="true" title="Profile is not available yet">View Profile</button>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xl-4 lawyer-item">
+                            <div class="lawyer-card card border-0 shadow-sm rounded-4 p-4 h-100 text-center">
+                                <img alt="Youssef Abdelhay" loading="lazy" src="https://sharkawylaw.com/wp-content/uploads/2025/12/4.png">
+                                <h5>Youssef Abdelhay</h5>
+                                <span class="law-badge">Attorney at Law</span>
+                                <p class="text-secondary small mb-2">📍 Egypt</p>
+                                <button class="btn btn-dark law-btn profile-disabled fw-semibold rounded-3 w-100 mt-3" type="button" disabled aria-disabled="true" title="Profile is not available yet">View Profile</button>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xl-4 lawyer-item">
+                            <div class="lawyer-card card border-0 shadow-sm rounded-4 p-4 h-100 text-center">
+                                <img alt="Karim Hani" loading="lazy" src="https://sharkawylaw.com/wp-content/uploads/2026/04/Untitled-design.png">
+                                <h5>Karim Hani</h5>
+                                <span class="law-badge">Attorney at Law</span>
+                                <p class="text-secondary small mb-2">📍 Egypt</p>
+                                <button class="btn btn-dark law-btn profile-disabled fw-semibold rounded-3 w-100 mt-3" type="button" disabled aria-disabled="true" title="Profile is not available yet">View Profile</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- ================= Lawyer Profile ================= -->
+                <section class="page-view" id="profile">
+                    <header class="page-header bg-white rounded-4 p-4 mb-4">
+                        <h1>Lawyer Profile</h1>
+                        <p>Review professional focus, practice areas and consultation availability.</p>
+                    </header>
+                    <div class="row g-4">
+                        <div class="col-lg-8">
+                            <div class="bg-white rounded-4 p-4 h-100">
+                                <div class="profile-summary">
+                                    <img class="lawyer-profile-photo" id="profileImage" src="" alt="Lawyer profile">
+                                    <div>
+                                        <h2 id="profileName">Lawyer Name</h2>
+                                        <p class="text-secondary" id="profileRole">Role • Egypt</p>
+                                        <span class="law-badge">Available for Consultation</span>
+                                    </div>
+                                </div>
+                                <div class="divider"></div>
+                                <h4>About</h4>
+                                <p id="profileAbout">Select one of the available lawyer profiles to view details.</p>
+                                <h4 class="mt-4">Practice Areas</h4>
+                                <div class="practice-tags" id="profilePracticeAreas"></div>
+                                <h4 class="mt-4">Professional Overview</h4>
+                                <div class="mini-list mt-3 profile-overview-list">
+                                    <div>
+                                        <span>Position</span>
+                                        <strong id="profileExperience">—</strong>
+                                    </div>
+                                    <div>
+                                        <span>Location</span>
+                                        <strong id="profileLocation">Egypt</strong>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="profile-side-card bg-white rounded-4 p-4 border rounded-3 h-100">
+                                <h4>Consultation Details</h4>
+                                <div class="mini-list">
+                                    <div>
+                                        <span>Languages</span>
+                                        <strong id="profileLanguages">Arabic, English</strong>
+                                    </div>
+                                    <div>
+                                        <span>Response Time</span>
+                                        <strong id="profileResponseTime">Within 24 hours</strong>
+                                    </div>
+                                    <div>
+                                        <span>Consultation</span>
+                                        <strong id="profileConsultation">Online / In person</strong>
+                                    </div>
+                                </div>
+                                <button class="w-100 mt-4 btn btn-dark law-btn fw-semibold rounded-3" type="button" onclick="bookSelectedLawyer()">Book Consultation</button>
+                                <button class="w-100 mt-2 btn btn-light border fw-semibold rounded-3" type="button" onclick="location.hash='lawyers'">Back to Lawyers</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- ================= Consultation ================= -->
+                <section class="page-view" id="consultation">
+                    <header class="page-header bg-white rounded-4 p-4 mb-4">
+                        <h1>Request Consultation</h1>
+                        <p>Book an appointment with <span class="gold-text fw-bold" id="consultationLawyerName">your selected lawyer</span>.</p>
+                    </header>
+                    <div class="row g-4">
+                        <div class="col-lg-6">
+                            <div class="bg-white rounded-4 p-4 h-100">
+                                <h3>Consultation Request</h3>
+                                <p class="text-secondary">Add the basic case details so the lawyer can review your request.</p>
+                                <form class="row g-3 mt-1" id="consultationForm" novalidate>
+                                    <div class="col-md-6">
+                                        <label>Full Name</label>
+                                        <input class="form-control shadow-none" id="consultationName" name="fullName" placeholder="Enter your name" autocomplete="name">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>Issue Type</label>
+                                        <select class="form-control shadow-none" id="consultationIssue" name="issueType">
+                                            <option value="">Select issue type</option>
+                                            <option>Criminal</option>
+                                            <option>Family</option>
+                                            <option>Business</option>
+                                            <option>Contract Review</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>Date</label>
+                                        <input class="form-control shadow-none" id="consultationDate" name="date" type="date">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>Time</label>
+                                        <input class="form-control shadow-none" id="consultationTime" name="time" type="time">
+                                    </div>
+                                    <div class="col-12">
+                                        <label>Description</label>
+                                        <textarea class="form-control shadow-none" id="consultationDescription" name="description" placeholder="Briefly describe your case..." rows="4" maxlength="500">
+                                        </textarea>
+                                    </div>
+                                    <div class="col-12">
+                                        <button class="w-100 btn btn-dark law-btn fw-semibold rounded-3" type="submit">Send Request</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="bg-white rounded-4 p-4 h-100">
+                                <h3>What happens next?</h3>
+                                <div class="timeline-list mt-4">
+                                    <div>
+                                        <b>1</b>
+                                        <span><strong>Request review</strong><small>The lawyer reviews the information you submitted.</small></span>
+                                    </div>
+                                    <div>
+                                        <b>2</b>
+                                        <span><strong>Confirmation</strong><small>You receive confirmation when the appointment is accepted.</small></span>
+                                    </div>
+                                    <div>
+                                        <b>3</b>
+                                        <span><strong>Consultation</strong><small>Meet at the agreed date and discuss your legal matter.</small></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- ================= Client Dashboard ================= -->
+                <section class="page-view" id="dashboard">
+                    <header class="page-header bg-white rounded-4 p-4 mb-4">
+                        <h1>Client Dashboard</h1>
+                        <p>Manage consultations, legal requests and important case activity.</p>
+                    </header>
+                    <div class="dashboard-stats row g-3">
+                        <div class="col-md-4">
+                            <div class="info-card text-center bg-light border rounded-3 p-3 h-100">
+                                <h3 class="gold-text fw-bold">3</h3>
+                                <p>Active Requests</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="info-card text-center bg-light border rounded-3 p-3 h-100">
+                                <h3 class="gold-text fw-bold">1</h3>
+                                <p>Upcoming Consultation</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="info-card text-center bg-light border rounded-3 p-3 h-100">
+                                <h3 class="gold-text fw-bold">2</h3>
+                                <p>Shared Documents</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-4 row g-4">
+                        <div class="col-lg-6">
+                            <div class="bg-white rounded-4 p-4 h-100">
+                                <div class="section-title-row">
+                                    <div>
+                                        <h3>Recent Requests</h3>
+                                        <p class="text-secondary">Your latest legal consultation activity.</p>
+                                    </div>
+                                    <span class="status-pill pending">Pending</span>
+                                </div>
+                                <div class="request-row">
+                                    <div>
+                                        <strong>Ahmed ElSawy</strong>
+                                        <span>Criminal Case Consultation</span>
+                                    </div>
+                                    <div class="text-end">
+                                        <strong>Sep 01, 2026</strong>
+                                        <span>10:30 AM</span>
+                                    </div>
+                                </div>
+                                <div class="request-row">
+                                    <div>
+                                        <strong>Mona Adel</strong>
+                                        <span>Contract Review</span>
+                                    </div>
+                                    <div class="text-end">
+                                        <strong>Aug 21, 2026</strong>
+                                        <span class="status-text">Completed</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="bg-white rounded-4 p-4 h-100">
+                                <h3>Upcoming Consultation</h3>
+                                <div class="appointment-card mt-4">
+                                    <span class="appointment-date">01<br><small>SEP</small></span>
+                                    <div>
+                                        <strong>Ahmed ElSawy</strong>
+                                        <p>Criminal Case Consultation</p>
+                                        <small>10:30 AM • Online meeting</small>
+                                    </div>
+                                </div>
+                                <a class="d-inline-block mt-4 btn btn-dark law-btn fw-semibold rounded-3" href="#chat">Open Chat</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-4 bg-white rounded-4 p-4">
+                        <h3>Documents</h3>
+                        <div class="mt-4 row g-3">
+                            <div class="col-md-6">
+                                <div class="document-card bg-white border rounded-3 h-100">
+                                    <span>PDF</span>
+                                    <div>
+                                        <strong>Case Summary.pdf</strong>
+                                        <small>Uploaded Aug 20, 2026</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="document-card bg-white border rounded-3 h-100">
+                                    <span>DOC</span>
+                                    <div>
+                                        <strong>Contract Draft.docx</strong>
+                                        <small>Shared by your lawyer</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- ================= Chat ================= -->
+                <section class="page-view" id="chat">
+                    <header class="page-header bg-white rounded-4 p-4 mb-4">
+                        <h1>In-App Chat</h1>
+                        <p>Keep case communication organized in one place.</p>
+                    </header>
+                    <div class="row g-4">
+                        <div class="col-lg-4">
+                            <div class="conversation-panel bg-white rounded-4 p-4 border rounded-3 h-100">
+                                <h4>Conversations</h4>
+                                <div class="conversation-item active">
+                                    <div class="conversation-avatar">
+                                        MA
+                                    </div>
+                                    <div>
+                                        <strong>Mona Adel</strong>
+                                        <small>Contract case • Online</small>
+                                    </div>
+                                    <span>2m</span>
+                                </div>
+                                <div class="conversation-item">
+                                    <div class="conversation-avatar">
+                                        AE
+                                    </div>
+                                    <div>
+                                        <strong>Ahmed ElSawy</strong>
+                                        <small>Consultation request</small>
+                                    </div>
+                                    <span>1d</span>
+                                </div>
+                                <div class="conversation-item">
+                                    <div class="conversation-avatar">
+                                        AH
+                                    </div>
+                                    <div>
+                                        <strong>Ahmed Hafez</strong>
+                                        <small>Case review</small>
+                                    </div>
+                                    <span>3d</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-8">
+                            <div class="chat-box bg-white rounded-4 p-4 border rounded-3 h-100">
+                                <div class="chat-header-line">
+                                    <div>
+                                        <h4>Mona Adel</h4>
+                                        <span class="online">● Online</span>
+                                    </div>
+                                    <span class="case-chip">Contract Case #LP-2048</span>
+                                </div>
+                                <div class="chat-messages">
+                                    <div class="msg-row client">
+                                        <div class="msg msg-sent">
+                                            Hello, I want to ask about my contract case.
+                                        </div>
+                                    </div>
+                                    <div class="msg-row lawyer">
+                                        <div class="msg msg-received">
+                                            Hello, how can I help you?
+                                        </div>
+                                    </div>
+                                    <div class="msg-row client">
+                                        <div class="msg msg-sent">
+                                            I uploaded the latest draft. Could you review the termination clause?
+                                        </div>
+                                    </div>
+                                    <div class="msg-row lawyer">
+                                        <div class="msg msg-received">
+                                            Yes. I will review it and send you the main notes before our consultation.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="chat-input-area">
+                                    <div class="chat-input-field">
+                                        <input class="form-control shadow-none" id="chatMessageInput" placeholder="Type a message..." autocomplete="off">
+                                    </div>
+                                    <button class="btn btn-dark law-btn fw-semibold rounded-3" id="chatSendButton" type="button">Send</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- ================= FAQ ================= -->
+                <section class="page-view" id="faq">
+                    <header class="page-header bg-white rounded-4 p-4 mb-4">
+                        <h1>FAQ &amp; Legal Questions</h1>
+                        <p>Quick answers about consultations, requests, communication and escrow.</p>
+                    </header>
+                    <div class="bg-white rounded-4 p-4">
+                        <h3>Frequently asked questions</h3>
+                        <div class="faq-list mt-4">
+                            <details open="">
+                                <summary>
+                                    How can I book a lawyer?
+                                </summary>
+                                <p>Open Find Lawyer, choose a lawyer and submit a consultation request with your preferred date and basic case details.</p>
+                            </details>
+                            <details>
+                                <summary>
+                                    How does escrow work?
+                                </summary>
+                                <p>Payment is held securely while the legal service is in progress and becomes available for release after the service reaches the required completion stage.</p>
+                            </details>
+                            <details>
+                                <summary>
+                                    Can I follow my request status?
+                                </summary>
+                                <p>Yes. The Client Dashboard shows active requests, appointment information and recent activity.</p>
+                            </details>
+                            <details>
+                                <summary>
+                                    Where do I communicate with my lawyer?
+                                </summary>
+                                <p>Use the Chat page to keep case-related messages together with the relevant lawyer.</p>
+                            </details>
+                            <details>
+                                <summary>
+                                    Can I share documents?
+                                </summary>
+                                <p>The dashboard includes a document area for files connected to your legal request.</p>
+                            </details>
+                            <details>
+                                <summary>
+                                    What should I include in a complaint?
+                                </summary>
+                                <p>Add a clear subject, the relevant service or request, and enough detail for the support team to understand the issue.</p>
+                            </details>
+                        </div>
+                    </div>
+                    <div class="mt-4 bg-white rounded-4 p-4">
+                        <h3>Need more help?</h3>
+                        <p class="text-secondary">If your question is related to your account or a platform issue, contact the Law Pulse support team.</p>
+                        <a class="d-inline-block mt-4 btn btn-dark law-btn fw-semibold rounded-3" href="#contact">Contact Support</a>
+                    </div>
+                </section>
+                <!-- ================= Complaints ================= -->
+                <section class="page-view" id="complaints">
+                    <header class="page-header bg-white rounded-4 p-4 mb-4">
+                        <h1>Complaints &amp; Suggestions</h1>
+                        <p>Submit feedback and keep the important details clear for the support team.</p>
+                    </header>
+                    <div class="row g-4">
+                        <div class="col-lg-6">
+                            <div class="bg-white rounded-4 p-4 h-100">
+                                <h3>Submit a complaint or suggestion</h3>
+                                <form class="mt-4" id="complaintForm" novalidate>
+                                    <div class="mb-3">
+                                        <label for="complaintSubject">Subject</label>
+                                        <input class="form-control shadow-none" id="complaintSubject" name="subject" placeholder="Complaint or suggestion title" maxlength="100">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="complaintCategory">Category</label>
+                                        <select class="form-control shadow-none" id="complaintCategory" name="category">
+                                            <option value="">Select category</option>
+                                            <option>Platform Issue</option>
+                                            <option>Consultation</option>
+                                            <option>Payment / Escrow</option>
+                                            <option>Lawyer Service</option>
+                                            <option>Suggestion</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="complaintDetails">Details</label>
+                                        <textarea class="form-control shadow-none" id="complaintDetails" name="details" placeholder="Write details..." rows="5" maxlength="600"></textarea>
+                                    </div>
+                                    <button class="btn btn-dark law-btn fw-semibold rounded-3" type="submit">Submit</button>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="bg-white rounded-4 p-4 h-100">
+                                <h3>Before submitting</h3>
+                                <div class="check-list mt-4">
+                                    <p>✓ Mention the related request or case when available.</p>
+                                    <p>✓ Describe what happened in a clear order.</p>
+                                    <p>✓ Avoid sharing passwords or sensitive login details.</p>
+                                    <p>✓ Add the result you expect from the support team.</p>
+                                </div>
+                                <div class="support-note bg-dark text-white rounded-3 p-3">
+                                    <strong>Support review</strong>
+                                    <span>Your submission will appear with a reference number after it is registered.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-4 bg-white rounded-4 p-4">
+                        <div class="section-title-row">
+                            <div>
+                                <h3>Recent submission</h3>
+                                <p class="text-secondary">Example of how submitted feedback is tracked.</p>
+                            </div>
+                            <span class="status-pill review">Under Review</span>
+                        </div>
+                        <div class="request-row">
+                            <div>
+                                <strong>#LP-CMP-1021</strong>
+                                <span>Consultation scheduling issue</span>
+                            </div>
+                            <div class="text-end">
+                                <strong>Aug 23, 2026</strong>
+                                <span>Support Team</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
